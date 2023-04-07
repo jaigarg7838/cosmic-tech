@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://gargtechsolutions.in/blog/1 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Google Tag Manager -->
+	<script async="" src="./blogs-6-img2_files/gtm.js"></script><script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-MQLTQZW');</script>
+	<!-- End Google Tag Manager -->
+	
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>5 simple steps (with screenshots) to deploy your MERN app</title>
+	<meta content="5 simple steps (with screenshots) to deploy MERN stack app on AWS EC2 server using Nginx and pm2" name="description">
+	<meta content="aws ec2 node js, ec2 nodejs, installing node on ec2, deploy react app to aws ec2, deploy nodejs app to aws, website deployment, deploying mern app to aws" name="keywords">
+
+	<link href="https://gargtechsolutions.in/img/logo.ico" rel="icon">
+	<link href="https://gargtechsolutions.in/img/white-bg-logo-250.png" rel="apple-touch-icon">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link href="./blogs-6-img2_files/css2" rel="stylesheet">
+	<link href="./blogs-6-img2_files/css2(1)" rel="stylesheet">
+
+	<link href="./blogs-6-img2_files/bootstrap.min.css" rel="stylesheet">
+	<link href="./blogs-6-img2_files/boxicons.min.css" rel="stylesheet">
+
+	<link href="./blogs-6-img2_files/blog-post.css" rel="stylesheet">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async="" src="./blogs-6-img2_files/js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-MVN6SFMZ0W');
+	</script>
+
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQLTQZW" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<header id="header" className="fixed-top header-inner-pages header-scrolled">
+    <div className="container d-flex align-items-center justify-content-between">
+
+        <h1 className="logo"><a href="https://gargtechsolutions.in/">Garg Tech</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" className="logo"><img src="assets/img/logo.png" alt="" className="img-fluid"></a>-->
+
+        <nav id="navbar" className="navbar">
+            <ul>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#hero">Home</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#about">About</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#services">Services</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#portfolio">Portfolio</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#testimonials">Testimonials</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#tech-stack">Tech Stack</a></li>
+                <li><a className="nav-link scrollto" href="https://gargtechsolutions.in/#contact">Contact Us</a></li>
+                <li><a className="nav-link scrollto active" href="https://gargtechsolutions.in/blog#blog-main">Blog</a></li>
+                <li><a className="getstarted scrollto" href="https://gargtechsolutions.in/#contact">Get Started</a></li>
+                <!-- <li><a className="getstarted scrollto" href="/blog">Blog</a></li> -->
+            </ul>
+            <i className="bx bx-menu mobile-nav-toggle"></i>
+        </nav>
+
+    </div>
+</header>
+
+		<main id="blog-main">
+
+			<section className="breadcrumbs">
+				<div className="container">
+
+					<div className="d-flex justify-content-between align-items-center">
+						<ol>
+							<li><a href="https://gargtechsolutions.in/">Home</a></li>
+							<li><a href="https://gargtechsolutions.in/blog">Blog</a></li>
+							<li>1</li>
+						</ol>
+					</div>
+
+				</div>
+			</section>
+
+			<section className="inner-page">
+				<div className="container">
+					<div className="blog-post">
+						<h1>5 simple steps (with screenshots) to deploy your MERN app</h1>
+						<p>
+							MERN: Mongodb, Express, React and Nodejs. MERN stack is currently one of the hottest
+							technologies available in the market. In this article I will very briefly discuss about
+							deploying a MERN application.
+						</p>
+
+						<img src="./blogs-6-img2_files/blog-1.jpg" className="img img-fluid">
+
+						<p>
+							To deploy our app we will user AWS EC2 with Ubuntu OS for hosting our app, Mongodb Cloud for
+							hosting our database and nginx to reverse proxy traffic to our frontend and apis.
+						</p>
+
+						<h4>
+							5 Steps in brief
+						</h4>
+
+						<ol>
+							<li>Launch AWS EC2 instance with Ubuntu 20.04 server image</li>
+							<li>Launch MongoDB cluster or install MongoDB community version</li>
+							<li>Install Nginx, git, nvm on the EC2 instance</li>
+							<li>Clone express app repository and start app server using PM2.</li>
+							<li>Build React project and deploy.</li>
+						</ol>
+
+						<p>
+							<strong>Step 1: Launch AWS EC2 instance with Ubuntu 20.04 server image.</strong>
+						</p>
+
+						<p>
+							AWS is one of the biggest cloud service provider, its 1 year free trial is ideal for
+							developers
+							learning devops or for testing waters for your new Idea. Its fairly easy to launch an EC2
+							instance. To launch an ec2 instance login to your AWS console, search for ec2 and lookout
+							for
+							the
+							Launch Instance button.
+						</p>
+
+						<img src="./blogs-6-img2_files/blog-1-1.png" className="img img-fluid">
+
+						<p>Click on the button and select Ubuntu Server 20.04 LTS.</p>
+
+						<img src="./blogs-6-img2_files/blog-1-2.png" className="img img-fluid">
+
+						<p>
+							On the next page Select t2.micro (free tier eligible) or any other instance according to
+							your
+							use case. Keep clicking on Next (default settings are good enough for a general applications
+							but
+							you can change them according to you requirements) until you reach the “Configure security
+							group” tab, click on the Add Rule, select http protocol, repeat for https protocol and them
+							click on Review and Launch.
+						</p>
+
+						<img src="./blogs-6-img2_files/blog-1-3.png" className="img img-fluid">
+
+						<p>
+							On the next page click on Launch. After clicking a popup will open, create a new key pair or
+							use
+							an existing key pair. Ensure that you have private key file for the key pair which you are
+							using. After clicking on Launch Instance your EC2 server will be up and running.
+						</p>
+
+						<p>
+							<strong>Step 2: Launch MongoDB cluster or install MongoDB community version.</strong>
+						</p>
+
+						<p>
+							Launching MongoDB cluster on MongoDB atlas is very simple so I won’t go in detail, MongoDB
+							atlas
+							offers a free tier which is more than enough for small applications to begin with.
+						</p>
+
+						<p>
+							To install MongoDB community server on Ubuntu VM we just created follow this tutorial by
+							MongoDB.
+						</p>
+
+						<p>
+							<a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener nofollow">
+								https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+							</a>
+						</p>
+
+						<p>
+							<strong>Step 3: Install Nginx, git, nvm on the EC2 instance.</strong>
+						</p>
+
+						<p>
+							Let me first introduce Nginx and why do we need it. Nginx is a webserver that can be used to
+							serve static files, or it can be used to reverse proxy traffic to other application servers.
+							Nginx can also be used as a load balancer for multiple instances of application server.
+						</p>
+
+						<p>
+							Why are we using Nginx ?
+						</p>
+
+						<ol>
+							<li>We want to keep API and frontend files separate, to make deployment fast and simple, so
+								traffic should be diverted accordingly.</li>
+							<li>We don’t want to manage https config from our express application.</li>
+							<li>We might want to instantiate more than 1 instance of our express application to improve
+								performance.</li>
+						</ol>
+
+						<p>
+							You can read more about Nginx on the below article by Nginx team.
+						</p>
+
+						<p>
+							<a href="https://www.nginx.com/resources/glossary/nginx/" target="_blank" rel="noopener nofollow">
+								https://www.nginx.com/resources/glossary/nginx/
+							</a>
+						</p>
+
+						<p>
+							And an in depth explanation of why we need Nginx in this masterpiece:
+						</p>
+
+						<p>
+							<a href="https://medium.com/intrinsic-blog/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca" target="_blank" rel="noopener nofollow">
+								https://medium.com/intrinsic-blog/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca
+							</a>
+						</p>
+
+						<p>
+							To install Nginx, git execute following command on the VM.
+						</p>
+
+						<code>
+							sudo apt-get install nginx git
+						</code>
+
+						<p>
+							To install nvm execute bellow commands:
+						</p>
+
+						<code>
+							wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash<br>
+							<br>
+							export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] &amp;&amp; printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"<br>
+							<br>
+							[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"<br>
+							<br>
+							nvm install v14.17.3<br>
+						</code>
+
+						<p>
+							You might ask why we need nvm for ?
+						</p>
+
+						<p>
+							Full form of nvm is node version manager. You can use nvm to install different version of
+							nodejs along with npm. This is one of the easiest way to properly install nodejs on linux.
+						</p>
+
+						<p>
+							OPTIONAL: I personally prefer vim over other text editors. Vim comes by default installed,
+							but not with its latest version. To update vim use following command.
+						</p>
+
+						<code>
+							sudo apt-get install vim
+						</code>
+
+						<p>
+							<strong>Step 4: Clone express app repository and start app server using pm2.</strong>
+						</p>
+
+						<p>
+							Use git to clone your express app on the VM. Install PM2 on the VM using below command.
+						</p>
+
+						<code>
+							npm i -g pm2
+						</code>
+
+						<p>
+							In a brief PM2 is a daemon process manager that will help you manage and keep your
+							application online 24/7. Visit PM2 official website for more info.
+						</p>
+
+						<p>
+							<a href="https://pm2.keymetrics.io/" target="_blank" rel="noopener nofollow">
+								https://pm2.keymetrics.io/
+							</a>
+						</p>
+
+						<p>
+							<strong>Step 5: Build React project and deploy.</strong>
+						</p>
+
+						<p>
+							Navigate to you react project and run below command in a terminal.
+						</p>
+
+						<code>
+							npm run build
+						</code>
+
+						<p>
+							If you are using env variables and want to change the variables according to different
+							environments take a look at the env-cmd package.
+						</p>
+
+						<p>
+							<a href="https://www.npmjs.com/package/env-cmd" target="_blank" rel="noopener nofollow">
+								https://www.npmjs.com/package/env-cmd
+							</a>
+						</p>
+
+						<p>
+							While the build is in progress create a folder on the VM to keep build files in. After build
+							is finished use scp command to move build files to the folder.
+						</p>
+
+						<code>
+							scp -r -i /home/user/ssh_keys/test.pem build/* ubuntu@x.x.x.x:/home/ubuntu/test-app-frontend
+						</code>
+
+						<p>
+							Replace x.x.x.x with ip of your instance.
+						</p>
+
+						<p>
+							An efficient method to automate build and transfer of build files is by using bash script,
+							below is an example of the script.
+						</p>
+
+						<code>
+							#!/bin/sh
+							<br>
+							<br>
+							npm run build
+							<br>
+							<br>
+							ssh -i /home/user/ssh_keys/test.pem ubuntu@x.x.x.x 'rm /home/ubuntu/test-app-frontend/* -r; mkdir -p /home/ubuntu/test-app-frontend'
+							<br>
+							<br>
+							scp -r -i /home/user/ssh_keys/test.pem build/* ubuntu@x.x.x.x:/home/ubuntu/test-app-frontend
+							<br>
+							<br>
+							rm build -r
+						</code>
+
+						<p>
+							This script build the react app files, then removes existing files on the VM and copy the
+							build files on the VM. Finally the script cleans the build folder ( this step can be omitted
+							if required).
+						</p>
+
+						<p>
+							Configure Nginx to reverse proxy traffic to frontend files and api. We need to edit the
+							Nginx config file located at /etc/nginx. Following is an example of config file.
+						</p>
+
+						<pre>user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+# Load dynamic modules. See /usr/share/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+	worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request"' '$status $body_bytes_sent "$http_referer"' '"$http_user_agent" "$http_x_forwarded_for"';<br>
+    access_log  /var/log/nginx/access.log  main;
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+    
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    
+    include /etc/nginx/conf.d/*.conf;
+    
+    server {
+        if ($host = example.com) {
+            return 301 https://$host$request_uri;
+        } # managed by Certbot
+        listen 80;
+        listen [::]:80 ipv6only=on default_server;
+        server_name example.com;
+        return 301 https://example.com$request_uri;
+    }
+    
+    server {
+        listen 443 ssl;
+        server_name example.com;
+        ssl_prefer_server_ciphers on;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+    	
+        location /api/ {
+            proxy_pass http://localhost:3000;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
+		
+        location / {
+            alias /home/ubuntu/test-app-frontend/;
+            index index.html;
+            try_files $uri $uri/ index.html =404;
+        }
+		
+        ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+    }
+
+}
+						</pre>
+
+						<p>
+							In this config I have assumed that you have ssl certificate installed and managed by
+							Certbot. Certbot can generate SSL certificate issues by lets encrypt and install them on its
+							own for you.
+						</p>
+
+						<p>
+							With this we end this tutorial. All the best deploying your MERN application.
+						</p>
+
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer id="footer">
+
+    <div className="footer-top">
+        <div className="container">
+            <div className="row">
+
+                <div className="col-lg-4 col-md-6 footer-contact">
+                    <h3>Garg Tech</h3>
+                    <p>
+                        Unity Enclave, Sector 28 <br>
+                        Rohini, New Delhi<br>
+                        Delhi-110042, India <br><br>
+                        <strong>Phone:</strong> +91 935 0937 539<br>
+                        <strong>Email:</strong> nitin@gargtechsolutions.in<br>
+                    </p>
+                </div>
+
+                <div className="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/#">Home</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/#about">About us</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/#services">Services</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/#portfolio">Portfolio</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/#contact">Contact Us</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/blog">Blog</a></li>
+                        <!-- <li><i className="bx bx-chevron-right"></i> <a href="/#">Terms of service</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Privacy policy</a></li> -->
+                    </ul>
+                </div>
+
+                <div className="col-lg-3 col-md-6 footer-links">
+                    <h4>Featured Blogs</h4>
+                    <ul>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/blog/wordpress_vs_html">WordPress VS HTML</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/blog/5">What is HTTP and HTTPS, and why your website should use HTTPS ?</a></li>
+                        <li><i className="bx bx-chevron-right"></i> <a href="https://gargtechsolutions.in/blog/4">6 reasons for Why your Business needs a website</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div className="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Join Our Email Newsletter</h4>
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div className="container">
+
+        <div className="copyright-wrap d-md-flex py-4">
+            <div className="me-md-auto text-center text-md-start">
+                <div className="copyright">
+                    © Copyright <strong><span>Garg Tech</span></strong>. All Rights Reserved
+                </div>
+            </div>
+            <div className="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="https://twitter.com/garg_tech" target="_blank" rel="noreferrer noopener" className="twitter"><i className="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/gargTech/" target="_blank" rel="noreferrer noopener" className="facebook"><i className="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/garg_tech" target="_blank" rel="noreferrer noopener" className="instagram"><i className="bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/garg-tech" target="_blank" rel="noreferrer noopener" className="linkedin"><i className="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+			<a href="https://gargtechsolutions.in/blog/1#" className="back-to-top d-flex align-items-center justify-content-center active">
+				<i className="bx bx-up-arrow-alt"></i>
+			</a>
+			
+			<script src="./blogs-6-img2_files/main.js"></script>
+
+
+
+</body></html>

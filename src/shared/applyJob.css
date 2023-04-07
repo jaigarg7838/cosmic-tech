@@ -1,0 +1,42 @@
+.form-page{
+    background: #f4f4f4;
+}
+
+.form-div{
+    background:white;
+    margin-top:40px;
+    /* padding:30px; */
+    margin-bottom:40px;
+    /* box-shadow: 5px 8px 24px 5px rgba(208, 216, 243, 0.6); */
+    border:1px solid rgba(0,0,0,.125);
+}
+
+.btn{
+    background: #23d3ee;
+    color:white;
+    border-radius: 0px;
+    margin-top:10px;
+    padding:8px 30px;
+    font-size:15px;
+    font-weight: bold;
+}
+
+/* .input{
+    outline: black !important;
+}
+
+.input:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background:black;
+    color:white;
+} */
+.ApplyJobContent{
+    margin-top:120px;
+    text-align:center;
+    color:rgb(28, 39, 81);
+}
+.ApplyJob1{
+    display: none;
+}
