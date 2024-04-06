@@ -13,7 +13,7 @@ class About extends Component {
             <section className="pageBackground">
             <div data-aos="fade-up">
                 <h1 className="headingText marginHeading">About Us</h1>
-                {/*<div className="container d-flex align-items-stretch" data-aos="zoom-in">
+                {/* <div className="container d-flex align-items-stretch" data-aos="zoom-in">
                     <div className="row">
                             <img src="./assets/img/aboutus/img3.gif" className="col-md-6 col-12 cardImage" /> 
                         <div className="col-md-6 cardContent col-12">
@@ -49,6 +49,10 @@ class About extends Component {
                                 Garg.</p>
                             <p className="cardNitinContent">
                                 Nitin is a thought leader in immersive technologies and a renowned name in deep tech implementations for businesses to ensure high ROIs.
+                                {/* In our earlier stages, we worked on a few startup ideas. Later we realized how
+                                hard it was to bring ideas to life. With all the learning and experience we gathered
+                                from our startup, we decided to help others fulfill their dreams and started our
+                                software consultation. */}
                             </p>
                           
                             <p className="cardNitinContent">
@@ -65,7 +69,7 @@ class About extends Component {
                         </div>
                     </div>
                 </div>
-                {/*<div className="card-wrapper container mt-4" data-aos="zoom-in">
+                {/* <div className="card-wrapper container mt-4" data-aos="zoom-in">
                     <div className="card cardBorder">
                         <div className="card-body cardContentBlue">
                             <img src="./assets/img/aboutus/imgNit.jpg" className="nitinImg" alt="Nitin Garg"/>
