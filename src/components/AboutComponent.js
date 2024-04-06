@@ -49,10 +49,6 @@ class About extends Component {
                                 Garg.</p>
                             <p className="cardNitinContent">
                                 Nitin is a thought leader in immersive technologies and a renowned name in deep tech implementations for businesses to ensure high ROIs.
-                                {/* In our earlier stages, we worked on a few startup ideas. Later we realized how
-                                hard it was to bring ideas to life. With all the learning and experience we gathered
-                                from our startup, we decided to help others fulfill their dreams and started our
-                                software consultation. */}
                             </p>
                           
                             <p className="cardNitinContent">
@@ -80,10 +76,6 @@ class About extends Component {
                                 Garg.</p>
                             <p className="cardNitinContent">
                                 Nitin is a thought leader in immersive technologies and a renowned name in deep tech implementations for businesses to ensure high ROIs.
-                                {/* In our earlier stages, we worked on a few startup ideas. Later we realized how
-                                hard it was to bring ideas to life. With all the learning and experience we gathered
-                                from our startup, we decided to help others fulfill their dreams and started our
-                                software consultation. */}
                             </p>
                           
                             <p className="cardNitinContent">
