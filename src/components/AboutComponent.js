@@ -11,7 +11,7 @@ class About extends Component {
         return (
             <div id="aboutus">
             <section className="pageBackground">
-            <div data-aos="fade-up">
+            {/*<div data-aos="fade-up">
                 <h1 className="headingText marginHeading">About Us</h1>
                 <div className="container d-flex align-items-stretch" data-aos="zoom-in">
                     <div className="row">
@@ -35,7 +35,7 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 
 
                 <div className="card-wrapper container mt-4" data-aos="zoom-in">
@@ -69,7 +69,7 @@ class About extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="card-wrapper container mt-4" data-aos="zoom-in">
+                {/*<div className="card-wrapper container mt-4" data-aos="zoom-in">
                     <div className="card cardBorder">
                         <div className="card-body cardContentBlue">
                             <img src="./assets/img/aboutus/imgNit.jpg" className="nitinImg" alt="Nitin Garg"/>
@@ -99,7 +99,7 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             </section>
             </div>
