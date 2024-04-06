@@ -11,9 +11,9 @@ class About extends Component {
         return (
             <div id="aboutus">
             <section className="pageBackground">
-            {/*<div data-aos="fade-up">
+            <div data-aos="fade-up">
                 <h1 className="headingText marginHeading">About Us</h1>
-                <div className="container d-flex align-items-stretch" data-aos="zoom-in">
+                {/*<div className="container d-flex align-items-stretch" data-aos="zoom-in">
                     <div className="row">
                             <img src="./assets/img/aboutus/img3.gif" className="col-md-6 col-12 cardImage" /> 
                         <div className="col-md-6 cardContent col-12">
